@@ -88,7 +88,7 @@
 #define DE_RPRN S(DE_9)    // )
 #define DE_EQL  S(DE_0)    // =
 #define DE_QUES S(DE_SS)   // ?
-#define DE_GRV  S(DE_ACUT) // ` (dead)
+#define DE_GRV  S(DE_ACUT) // ` (dead) 
 #define DE_ASTR S(DE_PLUS) // *
 #define DE_QUOT S(DE_HASH) // '
 #define DE_RABK S(DE_LABK) // >
