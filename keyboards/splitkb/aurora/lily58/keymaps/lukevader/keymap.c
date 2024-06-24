@@ -18,13 +18,13 @@ void keyboard_pre_init_user(void) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-	[0] = LAYOUT(	KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, 						KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, 
+	[0] = LAYOUT(	KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, 						KC_6, KC_7, KC_8, KC_9, TG(1), KC_BSPC, 
 					KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, 						DE_Z, KC_U, KC_I, KC_O, KC_P, DE_UDIA, 
 					MO(3), KC_A, KC_S, KC_D, KC_F, KC_G, 						KC_H, KC_J, KC_K, KC_L, MO(3), KC_ENT,
 					KC_LCTL, DE_Y, KC_X, KC_C, KC_V, KC_B, KC_LBRC, 	KC_RBRC,KC_N, KC_M, KC_COMM, KC_DOT, DE_ADIA, DE_ODIA, 
 					MO(2), KC_LGUI, KC_LALT, KC_SPC, 					KC_LSFT, MO(2), KC_ENT, KC_LCTL),
 
-	[1] = LAYOUT(	_______, _______, _______, _______, _______, _______, 							_______, _______, _______, _______, _______, _______, 
+	[1] = LAYOUT(	_______, _______, _______, _______, _______, _______, 							_______, _______, _______, _______, TG(1), _______, 
 					_______, _______, _______, _______, _______, _______,							_______, _______, _______, _______, _______, _______,
 					_______, _______, _______, _______, _______, _______, 							_______, _______, _______, _______, _______, _______,
 					_______, _______, _______, _______, _______, _______, 	_______,	_______,	_______, _______, _______, _______, _______, _______, 
@@ -43,12 +43,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 								_______, _______, _______, _______, 					_______, _______, _______, _______),
 };
 
-#if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
-const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
-};
-#endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
-
+/* The encoder_update_user is a function.
+ * It'll be called by QMK every time you turn the encoder.
+ *
+ * The index parameter tells you which encoder was turned. If you only have
+ * one encoder, the index will always be zero.
+ * 
+ * The clockwise parameter tells you the direction of the encoder. It'll be
+ * true when you turned the encoder clockwise, and false otherwise.
+ */
+bool encoder_update_user(uint8_t index, bool clockwise) {
+  /* With an if statement we can check which encoder was turned. */
+  if (index == 0) { /* First encoder: Left */
+    /* And with another if statement we can check the direction. */
+    if (clockwise) {
+      /* This is where the actual magic happens: this bit of code taps on the
+         Page Down key. You can do anything QMK allows you to do here.
+         You'll want to replace these lines with the things you want your
+         encoders to do. */
+      tap_code(KC_PGDN);
+    } else {
+      /* And likewise for the other direction, this time Page Down is pressed. */
+      tap_code(KC_PGUP);
+    }
+  /* You can copy the code and change the index for every encoder you have. Most
+     keyboards will only have two, so this piece of code will suffice. */
+  } else if (index == 1) { /* Second encoder: Right */
+    if (clockwise) {
+      tap_code(KC_MS_WH_DOWN);
+    } else {
+      tap_code(KC_MS_WH_UP);
+    }
+  }
+  return false;
+}
 
 
 

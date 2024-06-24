@@ -15,5 +15,7 @@
 
 DEFAULT_FOLDER = splitkb/aurora/lily58/rev1
 
+ENCODER_ENABLE = yes
+
 # Convert from Elite-C to Liatris
 CONVERT_TO=liatris
