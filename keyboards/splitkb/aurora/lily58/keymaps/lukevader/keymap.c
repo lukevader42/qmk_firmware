@@ -25,7 +25,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 					MO(2), KC_LGUI, KC_LALT, KC_SPC, 					KC_LSFT, MO(2), KC_ENT, KC_LCTL),
 
 	[1] = LAYOUT(	_______, _______, _______, _______, _______, _______, 							_______, _______, _______, _______, TG(1), _______, 
-					_______, DE	_Z, DE_Y, DE_U, DE_A, DE_Q,											DE_P, DE_B, DE_M, DE_L, DE_F, DE_SS,
+					_______, DE_Z, DE_Y, DE_U, DE_A, DE_Q,											DE_P, DE_B, DE_M, DE_L, DE_F, DE_SS,
 					_______, DE_C, DE_S, DE_I, DE_E, DE_O, 											DE_D, DE_T, DE_N, DE_R, DE_H, DE_J,
 					_______, DE_V, DE_X, DE_UDIA, DE_ADIA, DE_ODIA, _______,			_______,	DE_W, DE_G, _______, _______, DE_K, _______, 
 							 		  _______, _______, _______, _______, 							_______, _______, _______, _______),
@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	[3] = LAYOUT(	_______, KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, 							KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, _______, 
 					_______, DE_AT, DE_PLUS, DE_LBRC, DE_RBRC, DE_QUES, 					DE_EXLM, DE_LPRN, DE_RPRN, DE_MINS, DE_PERC, _______, 
-					_______, DE_ASTR, DE_AMPR, DE_LCBR, DE_RCBR , DE_CIRC, 					DE_UNDS, DE_DLR, DE_BSLS, DE_EQL, _______, _______,
+					_______, DE_ASTR, DE_AMPR, DE_LCBR, DE_RCBR , DE_CIRC, 					DE_UNDS, DE_DLR, DE_BSLS, DE_EQL, _______, DE_PIPE,
 					_______, DE_HASH, DE_SLSH, DE_SCLN, DE_GRV, DE_DQUO, _______, _______,	DE_QUOT, DE_COLN, DE_LABK, DE_RABK, DE_TILD, _______, 
 								_______, _______, _______, _______, 					_______, _______, _______, _______),
 };
